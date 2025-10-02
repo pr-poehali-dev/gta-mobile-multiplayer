@@ -30,11 +30,65 @@ export default function Index() {
                 <p className="text-muted-foreground">Исследуй ночной киберпанк город</p>
               </div>
               
-              <div className="w-full max-w-md aspect-video bg-card/30 border-2 border-primary neon-border rounded-lg backdrop-blur-sm flex items-center justify-center">
-                <div className="text-center space-y-3">
-                  <Icon name="Gamepad2" className="text-primary mx-auto animate-pulse-neon" size={64} />
-                  <p className="text-lg font-orbitron">Игровой экран</p>
-                  <p className="text-sm text-muted-foreground">Используй джойстики для управления</p>
+              <div className="w-full max-w-4xl aspect-video relative overflow-hidden rounded-lg border-2 border-primary neon-border">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0A0E27] via-[#1a1f3a] to-[#0A0E27]">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `
+                      linear-gradient(to bottom, transparent 0%, rgba(0,240,255,0.03) 50%, transparent 100%),
+                      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,240,255,0.05) 2px, rgba(0,240,255,0.05) 4px),
+                      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,0,110,0.03) 2px, rgba(255,0,110,0.03) 4px)
+                    `
+                  }} />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 h-2/3">
+                    <div className="relative h-full flex items-end justify-center perspective-1000">
+                      {[...Array(20)].map((_, i) => (
+                        <div 
+                          key={i}
+                          className="absolute bottom-0 w-16 bg-gradient-to-t opacity-80"
+                          style={{
+                            height: `${Math.random() * 60 + 40}%`,
+                            left: `${(i / 20) * 100}%`,
+                            background: i % 3 === 0 
+                              ? 'linear-gradient(to top, #00F0FF, transparent)' 
+                              : i % 3 === 1 
+                              ? 'linear-gradient(to top, #FF006E, transparent)'
+                              : 'linear-gradient(to top, #8B5CF6, transparent)',
+                            filter: 'blur(1px)',
+                            transform: 'scaleY(0.7)',
+                            animation: `pulse-neon ${2 + Math.random() * 2}s infinite`
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-2/3 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
+                  </div>
+
+                  <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#0A0E27]" />
+                  
+                  <div className="absolute top-4 left-4 space-y-1">
+                    <div className="flex items-center gap-2 text-xs text-primary font-orbitron">
+                      <div className="w-2 h-2 rounded-full bg-primary animate-pulse-neon" />
+                      <span>NIGHT CITY</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground font-mono">23:47:32</div>
+                  </div>
+
+                  <div className="absolute top-4 right-4 space-y-2">
+                    <div className="flex items-center gap-2 text-xs">
+                      <Icon name="Radar" className="text-secondary" size={14} />
+                      <span className="text-secondary font-orbitron">256m</span>
+                    </div>
+                  </div>
+
+                  <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 border-2 border-primary rounded-full opacity-50" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-4 bg-primary" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-1 bg-primary" />
+                  </div>
                 </div>
               </div>
 
